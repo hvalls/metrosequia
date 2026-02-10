@@ -1,0 +1,17 @@
+{
+  "name": "metrosequia",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "bot.mjs",
+  "scripts": {
+    "start": "node --no-deprecation bot.mjs"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "dotenv": "^17.2.4",
+    "grammy": "^1.40.0"
+  }
+}
