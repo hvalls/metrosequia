@@ -3,4 +3,5 @@ WORKDIR /app
 COPY package.json package-lock.json ./
 RUN npm ci --omit=dev
 COPY bot.mjs .
-CMD ["node", "bot.mjs"]
+ENV NODE_TLS_REJECT_UNAUTHORIZED=0
+CMD ["node", "--no-deprecation", "bot.mjs"]

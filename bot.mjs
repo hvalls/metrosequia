@@ -149,11 +149,12 @@ async function replyXativaFoios(ctx) {
   }
 }
 
-bot.command("start", (ctx) =>
-  ctx.reply("Prem el botó per consultar el pròxim tren.", {
+bot.command("start", (ctx) => {
+  console.log(`[start] @${ctx.from?.username ?? ctx.from?.id}`);
+  return ctx.reply("Prem el botó per consultar el pròxim tren.", {
     reply_markup: keyboard,
-  }),
-);
+  });
+});
 
 async function replyBenimacletFoios(ctx) {
   try {
@@ -173,9 +174,18 @@ async function replyBenimacletFoios(ctx) {
   }
 }
 
-bot.hears("Pròxim tren de Foios a València", replyFoiosValencia);
-bot.hears("Pròxim tren de Xàtiva a Foios", replyXativaFoios);
-bot.hears("Pròxim tren de Benimaclet a Foios", replyBenimacletFoios);
+bot.hears("Pròxim tren de Foios a València", (ctx) => {
+  console.log(`[foios→valència] @${ctx.from?.username ?? ctx.from?.id}`);
+  return replyFoiosValencia(ctx);
+});
+bot.hears("Pròxim tren de Xàtiva a Foios", (ctx) => {
+  console.log(`[xàtiva→foios] @${ctx.from?.username ?? ctx.from?.id}`);
+  return replyXativaFoios(ctx);
+});
+bot.hears("Pròxim tren de Benimaclet a Foios", (ctx) => {
+  console.log(`[benimaclet→foios] @${ctx.from?.username ?? ctx.from?.id}`);
+  return replyBenimacletFoios(ctx);
+});
 
 bot.start();
 console.log("Bot is running...");
