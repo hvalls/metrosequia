@@ -2,9 +2,9 @@
   "name": "metrosequia",
   "version": "1.0.0",
   "type": "module",
-  "main": "bot.mjs",
+  "main": "src/bot.mjs",
   "scripts": {
-    "start": "node --no-deprecation bot.mjs"
+    "start": "node --no-deprecation src/bot.mjs"
   },
   "keywords": [],
   "author": "",
